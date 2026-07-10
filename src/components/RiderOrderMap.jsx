@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import * as L from "leaflet";
-window.L = L; 
-import "leaflet-routing-machine/dist/leaflet-routing-machine.js";
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "leaflet/dist/leaflet.css";
+import "leaflet-routing-machine";
 import axios from "axios";
 import { realtimeService } from "../main";
 
