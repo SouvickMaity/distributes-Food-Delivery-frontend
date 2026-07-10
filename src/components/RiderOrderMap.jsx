@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.js";
 import axios from "axios";
 import { realtimeService } from "../main";
 
@@ -20,7 +21,7 @@ const deliveryIcon = new L.DivIcon({
 
 const Routing = ({ from, to }) => {
   const map = useMap();
-
+ console.log("L.Routing =", L.Routing);
   useEffect(() => {
     const control = L.Routing.control({
       waypoints: [L.latLng(from), L.latLng(to)],
@@ -68,7 +69,7 @@ const RiderOrderMap = ({ order }) => {
 
           setRiderLocation([latitude, longitude]);
           console.log("Internal key:", import.meta.env.VITE_INTERNAL_SERVICE_KEY);
-          
+
           axios.post(
             `${realtimeService}/api/v1/internal/emit`,
             {
