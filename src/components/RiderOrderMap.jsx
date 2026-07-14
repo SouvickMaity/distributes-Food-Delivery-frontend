@@ -68,7 +68,16 @@ const RiderOrderMap = ({ order }) => {
 
           setRiderLocation([latitude, longitude]);
           console.log("Internal key:", import.meta.env.VITE_INTERNAL_SERVICE_KEY);
+          console.log(
+              "EMITTING ROOM:",
+              `user:${order.userId}`
+            );
 
+            console.log(
+              "RIDER LOCATION:",
+              latitude,
+              longitude
+            );
           axios.post(
             `${realtimeService}/api/v1/internal/emit`,
             {
